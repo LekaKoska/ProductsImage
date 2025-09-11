@@ -6,6 +6,7 @@ use App\Http\Requests\ProductRequest;
 use App\Models\Products;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\View\View;
 
 class ProductController extends Controller
 {
@@ -26,7 +27,7 @@ class ProductController extends Controller
         return redirect()->route('home');
     }
 
-    public function permalink(Products $id)
+    public function permalink(Products $id): View
     {
         Cache::put('permalinkProduct', $id);
 

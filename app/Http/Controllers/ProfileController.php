@@ -29,7 +29,7 @@ class ProfileController extends Controller
         ]);
     }
 
-    public function changeAvatar(NewAvatarRequest $request)
+    public function changeAvatar(NewAvatarRequest $request): RedirectResponse
     {
         $avatar = Auth::user()->avatar;
 
@@ -47,9 +47,6 @@ class ProfileController extends Controller
             Auth::user()->update(['avatar' => $name]);
 
             return redirect()->back();
-
-
-
 
     }
 
